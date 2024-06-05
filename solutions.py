@@ -27,6 +27,9 @@ def is_square():
       :returns: True if square (i.e. if equal length and height), False otherwise.
     """
     #### write your solution for this function below here. ####
+    width = float(input("Enter the width of the area (in inches): "))
+    height = float(input("Enter the height of the area (in inches): "))
+    return width == height
 
 
 def get_greatest():
@@ -38,6 +41,12 @@ def get_greatest():
     :returns: the greatest of the two input numbers, as an int.
     """
     #### write your solution for this function below here. ####
+    int_one = int(input("Please enter an integer value: "))
+    int_two = int(input("Please enter another integer value: "))
+    if int_one >= int_two:
+        return int_one
+    else:
+        return int_two
 
 
 def get_bmi_category():
@@ -60,6 +69,25 @@ def get_bmi_category():
       :returns: The name of the BMI statistical category, based on the inputted height and weight.
     """
     #### write your solution for this function below here. ####
+    user_height = float(input("Please enter your height (in inches): "))
+    user_weight = float(input("Please enter your weight (in pounds): "))
+    user_bmi = 703 * user_weight / (user_height ** 2)
+    if user_bmi < 15:
+        return "Very severely underweight"
+    elif 15 <= user_bmi < 16:
+        return "Severely underweight"
+    elif 16 <= user_bmi < 18.5:
+        return "Underweight"
+    elif 18.5 <= user_bmi < 25:
+        return "Normal"
+    elif 25 <= user_bmi < 30:
+        return "Overweight"
+    elif 30 <= user_bmi < 35:
+        return "Moderately obese"
+    elif 35 <= user_bmi < 40:
+        return "Severely obese"
+    else:
+        return "Very severely obese"
 
 
 def get_discount():
@@ -72,6 +100,14 @@ def get_discount():
       :returns: The cost of the masks, after any discounts, e.g. "$4,000" for 1000 masks.
     """
     #### write your solution for this function below here. ####
+    mask_demanded = int(input("Please enter how many masks you would like to purchase: "))
+    total_cost = mask_demanded * 5
+    if mask_demanded >= 5000:
+        total_cost = round(total_cost * 0.8)
+        return "${:,}".format(total_cost)
+    else:
+        total_cost = round(total_cost)
+        return "${:,}".format(total_cost)
 
 
 def is_leap_year():
@@ -85,3 +121,12 @@ def is_leap_year():
         get_year()
     )  # this line is given to you - the variable, year, holds the current year
     #### write your solution for this function below here. ####
+    if year % 100 == 0:
+        if year % 400 == 0:
+            return True
+        else:
+            return False
+    elif year % 4 == 0:
+        return True
+    else:
+        return False
